@@ -45,6 +45,7 @@ const Chart = ({ data }: any) => {
           stroke="#8884d8"
           dot={false}
           strokeWidth={2}
+          isAnimationActive={false}
         />
         <Line
           yAxisId="right"
@@ -53,6 +54,7 @@ const Chart = ({ data }: any) => {
           stroke="#82ca9d" 
           dot={false}
           strokeWidth={2}
+          isAnimationActive={false}
         />
       </LineChart>
     </ResponsiveContainer>
