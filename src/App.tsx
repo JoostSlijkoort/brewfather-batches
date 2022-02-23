@@ -60,7 +60,6 @@ const App = () => {
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    console.log('eeee')
     const token = searchParams.get('token');
 
     if(!token) {

@@ -10,8 +10,8 @@ const Chart = ({ data }: any) => {
         data={data}
         margin={{
           top: 25,
-          right: 30,
-          left: 20,
+          right: 10,
+          left: 10,
           bottom: 25,
         }}
       >
@@ -19,7 +19,7 @@ const Chart = ({ data }: any) => {
         <XAxis
           dataKey="time"
           scale="time"
-          tickFormatter={(d) => moment(d).format('D-M HH:mm')}
+          tickFormatter={(d) => moment(d).format('DD-MM HH:mm')}
           minTickGap={50}
           tickMargin={10}
         />
@@ -36,7 +36,7 @@ const Chart = ({ data }: any) => {
           orientation="right"
           tick={{opacity: 0.5}}
         />
-        <Tooltip labelFormatter={(d) => moment(d).format('D-M-YYYY HH:mm')} />
+        <Tooltip labelFormatter={(d) => moment(d).format('DD-MM-YYYY HH:mm')} />
         <Legend />
         <Line
           yAxisId="left"
