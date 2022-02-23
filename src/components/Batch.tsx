@@ -8,7 +8,6 @@ interface Props {
 const Batch = (props: Props) => {
   const { data } = props;
   const lastReadings = data.readings[data.readings.length -1] || {};
-  const now = moment();
   const stableSince = data.readings.slice().reverse().find((reading: any) => reading.sg !== lastReadings.sg)
   const stableDiff = moment(lastReadings.time).diff(stableSince.time, 'hours')
 
