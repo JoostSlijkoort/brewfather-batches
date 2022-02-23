@@ -43,7 +43,6 @@ const fetchReadings = async (batches: any[]) => {
 
 const App = () => {
   const [searchParams] = useSearchParams();
-  const [loading, setLoading] = useState(true);
   const [batches, setBatches] = useBatchesState([]);
   const [hasToken, setHasToken] = useBatchesState(true);
 
@@ -61,7 +60,7 @@ const App = () => {
         setBatches(readings);
       });
     });
-  }, [])
+  })
 
   const Batches = batches && batches.map((batch: any) => (<Batch key={batch._id} data={batch} />))
 
