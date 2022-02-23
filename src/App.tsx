@@ -46,7 +46,7 @@ const fetchReadings = async (batches: any[]) => {
 
     return {
       ...batch,
-      readings: mappedReadings.sort((a: any, b:any) => b.time - a.time),
+      readings: mappedReadings.sort((a: any, b:any) => a.time - b.time),
     }
   }));
   
