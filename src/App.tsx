@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 // @ts-ignore
 import createPersistedState from 'use-persisted-state';
 import Batch from './components/Batch';
