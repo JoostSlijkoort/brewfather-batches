@@ -83,7 +83,7 @@ const App = () => {
     });
   }, [])
 
-  const Batches = batches && batches.length && batches.map((batch: any) => (<Batch key={batch._id} data={batch} />))
+  const Batches = batches && batches.length && batches.filter((v: any) => v.readings.length > 0).map((batch: any) => (<Batch key={batch._id} data={batch} />))
 
   if(error) {
     return <div className="warn">Error: {error}</div>
