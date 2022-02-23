@@ -82,7 +82,7 @@ const App = () => {
         setBatches(readings);
       });
     });
-  }, [searchParams])
+  }, [])
 
   const Batches = batches && batches.length && batches.map((batch: any) => (<Batch key={batch._id} data={batch} />))
 
