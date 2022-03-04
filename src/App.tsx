@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 // @ts-ignore
 import createPersistedState from 'use-persisted-state';
 import Batch from './components/Batch';
+import { Bars } from 'react-loader-spinner'
 import { useSearchParams } from "react-router-dom";
 
 const useBatchesState = createPersistedState('batches');
@@ -49,13 +50,14 @@ const fetchReadings = async (batches: any[]) => {
       readings: mappedReadings.sort((a: any, b:any) => a.time - b.time),
     }
   }));
-  
+
   return asyncRes;
 }
 
 const App = () => {
   const [searchParams] = useSearchParams();
   const [batches, setBatches] = useBatchesState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [hasToken, setHasToken] = useState(false);
   const [error, setError] = useState(false)
 
@@ -79,6 +81,7 @@ const App = () => {
 
       fetchReadings(batches.data).then((readings: any) => {
         setBatches(readings);
+        setIsLoading(false)
       });
     });
   }, [])
@@ -90,6 +93,13 @@ const App = () => {
   }
   if(!hasToken) {
     return <div className="warn">Please set ?token=</div>;
+  }
+  if(isLoading) {
+    return (
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Bars height="100" width="100" color="rgb(136, 132, 216)" ariaLabel="loading-indicator" />;
+        </div>
+      )
   }
   return (
     <div>
